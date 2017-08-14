@@ -1,0 +1,3 @@
+- win_chocolatey:
+    name: "nvidia-display-driver"
+    state: latest

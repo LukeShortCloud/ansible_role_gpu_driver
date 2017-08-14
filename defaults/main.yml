@@ -1,0 +1,5 @@
+---
+# Use the Nvidia Bumblebee drivers. These are designed for newer laptops
+# that use a hybrid mode of integrated and dedicated graphics cards.
+# This does not apply to desktop computers.
+nvidia_use_bumblebee: false

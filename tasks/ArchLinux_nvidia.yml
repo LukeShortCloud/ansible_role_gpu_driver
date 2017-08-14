@@ -1,0 +1,13 @@
+- set_fact:
+    nvidia_packages:
+     - nvidia
+     - nvidia-utils
+     - lib32-nvidia-utils
+     - nvidia-libgl
+     - lib32-nvidia-libgl
+
+- package:
+    name: "{{ item }}"
+    state: latest
+  with_flattened:
+   - "{{ nvidia_packages }}"

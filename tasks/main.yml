@@ -1,0 +1,3 @@
+---
+- include: "{{ ansible_distribution }}_nvidia.yml"
+  when: nvidia_install

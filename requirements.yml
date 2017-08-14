@@ -1,0 +1,4 @@
+---
+# This is only required on Fedora to install the RPM Fusion
+# (nonfree) repository for the Nvidia graphics driver.
+- src: https://github.com/sourcejedi/ansible-rpmfusion-nonfree

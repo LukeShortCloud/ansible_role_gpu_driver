@@ -1,0 +1,34 @@
+- set_fact:
+    nvidia_packages:
+     - akmod-nvidia
+     - kmod-nvidia
+     - nvidia-kmod-common
+     - xorg-x11-drv-nvidia
+     - xorg-x11-drv-nvidia-kmodsrc
+     - xorg-x11-drv-nvidia-libs.i686
+     - xorg-x11-drv-nvidia-libs.x86_64
+  when: not nvidia_use_bumblebee
+
+- set_fact:
+    nvidia_packages:
+     - bumblebee-nvidia
+     - bbswitch-dkms
+     - kernel-devel
+     - primus.x86_64
+     - primus.i686
+     - VirtualGL.x86_64
+     - VirtualGL.i686
+  when: nvidia_use_bumblebee
+
+- name: Installing the Nvidia Bumlbebee driver repository for Fedora
+  package:
+    name: "http://install.linux.ncsu.edu/pub/yum/itecs/public/bumblebee/fedora{{ ansible_distribution_major_version }}/noarch/bumblebee-release-1.2-1.noarch.rpm"
+    state: latest
+  when: nvidia_use_bumblebee
+
+- name: Installing the Nvidia driver packages
+  package:
+    name: "{{ item }}"
+    state: latest
+  with_flattened:
+   - "{{ nvidia_packages }}"
