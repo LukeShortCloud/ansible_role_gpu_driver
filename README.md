@@ -8,18 +8,15 @@ Currently supported platforms:
 * Fedora >= 28
 * Windows
 
-
 ## Requirements
 
 * Ansible >= 2.5
-    * Python 2.7, or >= 3.5
-
+    * Python 2.7 or >= 3.5
 
 ## Role Variables
 
 * nvidia_install = Set to "true" to install the Nvidia graphics drivers.
 * nvidia_use_bumblebee = Set this to "true" if Nvidia will be installed on an [Nvidia Optimus laptop](https://www.geforce.com/hardware/technology/optimus/supported-gpus). On some operating systems, such as Fedora, this is shipped as different binary packages.
-
 
 ## Dependencies
 
@@ -29,11 +26,9 @@ Fedora requires the [RPM Fusion (nonfree) repository](https://rpmfusion.org/).
 $ sudo ansible-galaxy install -r requirements.yml
 ```
 
-
 ## Compatibility
 
 Only Nvidia is supported right now. AMD is switching to a new AMDGPU-PRO driver for Linux that that is still young and is replacing the old Catalyst driver. Windows also does not have a Chocolatey package for any of the AMD drivers.
-
 
 ## Example Playbook
 
@@ -58,7 +53,6 @@ Alternatively, a laptop with Nvidia Optimus support should install the Nvidia Bu
 ```
 $ sudo ansible-playbook --extra-vars "nvidia_install=true nvidia_use_bumblebee=true" site.yml
 ```
-
 
 ## License
 
