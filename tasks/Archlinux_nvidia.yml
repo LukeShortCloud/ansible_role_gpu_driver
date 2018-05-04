@@ -9,5 +9,4 @@
 - package:
     name: "{{ item }}"
     state: latest
-  with_flattened:
-   - "{{ nvidia_packages }}"
+  loop: "{{ nvidia_packages }}"
