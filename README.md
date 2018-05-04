@@ -5,14 +5,14 @@ This role aims to make it easy for installing proprietary graphics card drivers 
 Currently supported platforms:
 
 * Arch Linux
-* Fedora
+* Fedora >= 28
 * Windows
 
 
 ## Requirements
 
-* Ansible >= 2.0
-    * Python 2.6, 2.7, or >= 3.5
+* Ansible >= 2.5
+    * Python 2.7, or >= 3.5
 
 
 ## Role Variables
@@ -44,9 +44,6 @@ $ vim site.yml
 ---
 - hosts: localhost
   roles:
-   # Uncomment the line below for Fedora to install the
-   # RPM Fusion (nonfree) repository.
-   #- sourcejedi.rpmfusion-nonfree
    - ansible-role-gpu-driver
 ```
 

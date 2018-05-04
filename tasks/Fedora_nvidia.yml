@@ -26,9 +26,15 @@
     state: latest
   when: nvidia_use_bumblebee
 
+- name: Installing the Fedora workstaiton repositories
+  dnf:
+    name: fedora-workstation-repositories
+    state: latest
+
 - name: Installing the Nvidia driver packages
-  package:
+  dnf:
     name: "{{ item }}"
     state: latest
+    enablerepo: rpmfusion-nonfree-nvidia-driver
   with_flattened:
    - "{{ nvidia_packages }}"
