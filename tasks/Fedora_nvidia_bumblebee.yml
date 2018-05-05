@@ -1,0 +1,34 @@
+# Following the instructions from:
+# http://fedoraproject.org/wiki/Bumblebee
+- name: Installing the Bumblebee repository
+  shell: dnf -y copr enable chenxiaolong/bumblebee
+
+- name: Installing Bumblebee
+  dnf:
+    name: "{{ item }}"
+    state: latest
+  loop:
+    - akmod-bbswitch
+    - bumblebee
+    - primus
+
+- name: Allowing a user to use the "optirun" and "primusrun" commands
+  user:
+    name: "{{ bumblebee_user }}"
+    groups: bumblebee
+    append: yes
+  when: bumblebee_user is defined
+
+- name: Enabling Bumblebee
+  systemd:
+    name: bumblebeed
+    enabled: yes
+
+- name: Disallowing Nvidia to fallback to Nouveau
+  systemd:
+    name: nvidia-fallback
+    masked: yes
+    enabled: no
+
+- debug:
+    msg: "Reboot the machine(s) to load the new drivers."

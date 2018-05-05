@@ -51,7 +51,7 @@ $ sudo ansible-playbook --extra-vars "nvidia_install=true" site.yml
 Alternatively, a laptop with Nvidia Optimus support should install the Nvidia Bumblebee drivers.
 
 ```
-$ sudo ansible-playbook --extra-vars "nvidia_install=true nvidia_use_bumblebee=true" site.yml
+$ sudo ansible-playbook --extra-vars "nvidia_install=true nvidia_use_bumblebee=true bumblebee_user=exampleuser" site.yml
 ```
 
 ## License
