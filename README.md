@@ -17,14 +17,7 @@ Currently supported platforms:
 
 * nvidia_install = Set to "true" to install the Nvidia graphics drivers.
 * nvidia_use_bumblebee = Set this to "true" if Nvidia will be installed on an [Nvidia Optimus laptop](https://www.geforce.com/hardware/technology/optimus/supported-gpus). On some operating systems, such as Fedora, this is shipped as different binary packages.
-
-## Dependencies
-
-Fedora requires the [RPM Fusion (nonfree) repository](https://rpmfusion.org/).
-
-```
-$ sudo ansible-galaxy install -r requirements.yml
-```
+* bumblebee_user = A user that should be allowed to run programs using Bumblebee.
 
 ## Compatibility
 
