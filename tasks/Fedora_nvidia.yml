@@ -1,7 +1,6 @@
 - set_fact:
     nvidia_packages:
      - akmod-nvidia
-     - kmod-nvidia
      - nvidia-kmod-common
      - xorg-x11-drv-nvidia
      - xorg-x11-drv-nvidia-kmodsrc
@@ -29,3 +28,6 @@
 - name: Including the Bumblebee tasks
   include_tasks: Fedora_nvidia_bumblebee.yml
   when: nvidia_use_bumblebee
+
+- name: Force update the Nvidia kernel module
+  command: akmods --force
