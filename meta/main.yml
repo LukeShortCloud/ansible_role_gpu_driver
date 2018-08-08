@@ -1,33 +1,23 @@
 galaxy_info:
   author: Luke Short
-  description: An Ansible role for installing the proprietary AMD or Nvidia graphics drivers in Linux.
+  description: An Ansible role for installing the proprietary AMD or Nvidia graphics drivers in Linux and Windows.
+  issue_tracker_url: https://github.com/ekultails/ansible_role_gpu_driver/issues
   license: GPLv3
-  min_ansible_version: 2.5
+  min_ansible_version: 2.6
   platforms:
-   - name: Arch Linux
-     versions:
-      - all
-#   - name: Debian
-#     versions:
-#      - 9
-#  # [Red Hat] Enterprise Linux
-#   - name: EL
-#     versions:
-#     - 7
-   - name: Fedora
-     versions:
-      - 28
-#   - name: Ubuntu
-#     versions:
-#      - 16.04
-   - name: Windows
-     versions:
-      - 7
-      - 8
-      - 10
+    - name: Arch Linux
+      versions:
+        - all
+    - name: Fedora
+      versions:
+        - 28
+    - name: Windows
+      versions:
+        - 10
   galaxy_tags:
-#   - amd
    - desktop
    - nvidia
    - graphics
    - gaming
+
+dependencies: []

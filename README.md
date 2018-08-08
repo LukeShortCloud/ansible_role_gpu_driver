@@ -10,8 +10,7 @@ Currently supported platforms:
 
 ## Requirements
 
-* Ansible >= 2.5
-    * Python 2.7 or >= 3.5
+* Ansible >= 2.6
 
 ## Role Variables
 
