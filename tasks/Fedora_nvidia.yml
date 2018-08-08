@@ -1,39 +1,10 @@
-- set_fact:
-    nvidia_packages:
-     - akmod-nvidia
-     - kmod-nvidia
-     - nvidia-kmod-common
-     - xorg-x11-drv-nvidia
-     - xorg-x11-drv-nvidia-kmodsrc
-     - xorg-x11-drv-nvidia-libs.i686
-     - xorg-x11-drv-nvidia-libs.x86_64
+- name: Including the normal Nvidia driver tasks
+  include_tasks: Fedora_nvidia_main.yml
   when: not nvidia_use_bumblebee
 
-- set_fact:
-    nvidia_packages:
-     - bumblebee-nvidia
-     - bbswitch-dkms
-     - kernel-devel
-     - primus.x86_64
-     - primus.i686
-     - VirtualGL.x86_64
-     - VirtualGL.i686
+- name: Including the Nvidia Primus/Bumblebee tasks
+  include_tasks: Fedora_nvidia_bumblebee.yml
   when: nvidia_use_bumblebee
 
-- name: Installing the Nvidia Bumlbebee driver repository for Fedora
-  package:
-    name: "http://install.linux.ncsu.edu/pub/yum/itecs/public/bumblebee/fedora{{ ansible_distribution_major_version }}/noarch/bumblebee-release-1.2-1.noarch.rpm"
-    state: latest
-  when: nvidia_use_bumblebee
-
-- name: Installing the Fedora workstaiton repositories
-  dnf:
-    name: fedora-workstation-repositories
-    state: latest
-
-- name: Installing the Nvidia driver packages
-  dnf:
-    name: "{{ item }}"
-    state: latest
-    enablerepo: rpmfusion-nonfree-nvidia-driver
-  loop: "{{ nvidia_packages }}"
+- name: Force update the Nvidia kernel module
+  command: akmods --force

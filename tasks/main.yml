@@ -1,3 +1,6 @@
 ---
 - include: "{{ ansible_distribution }}_nvidia.yml"
   when: nvidia_install
+
+- debug:
+    msg: "Reboot the machine(s) to load new drivers."

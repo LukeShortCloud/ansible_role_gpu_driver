@@ -1,0 +1,17 @@
+- name: Installing the Fedora workstaiton repositories
+  dnf:
+    name: fedora-workstation-repositories
+    state: latest
+
+- name: Enabling the Nvidia repository
+  lineinfile:
+    path: /etc/yum.repos.d/rpmfusion-nonfree-nvidia-driver.repo
+    regexp: "^enabled"
+    line: "enabled=1"
+
+- name: Installing the Nvidia driver packages
+  dnf:
+    name: "{{ item }}"
+    state: present
+    enablerepo: rpmfusion-nonfree-nvidia-driver
+  loop: "{{ nvidia_main_packages }}"
