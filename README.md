@@ -1,4 +1,4 @@
-# ansible-role-gpu-driver
+# GPU Driver (Ansible Role)
 
 This role aims to make it easy for installing proprietary graphics card drivers on any Linux or Windows operating system. This is especially helpful for Linux where the steps are completely different to install the driver between the operating system variants. This role also focuses on utilizing system packages to maintain the updates of the Nvidia driver.
 
@@ -14,9 +14,10 @@ Currently supported platforms:
 
 ## Role Variables
 
-* nvidia_install = Set to "true" to install the Nvidia graphics drivers.
-* nvidia_use_bumblebee = Set this to "true" if Nvidia will be installed on an [Nvidia Optimus laptop](https://www.geforce.com/hardware/technology/optimus/supported-gpus). On some operating systems, such as Fedora, this is shipped as different binary packages.
-* bumblebee_user = A user that should be allowed to run programs using Bumblebee.
+* gpu_driver_nvidia_install = Set to `True` to install the Nvidia graphics drivers.
+* gpu_driver_use_bumblebee = Set this to `True` if Nvidia will be installed on an [Nvidia Optimus laptop](https://www.geforce.com/hardware/technology/optimus/supported-gpus).
+* gpu_driver_bumblebee_user = A user that should be allowed to run programs using Bumblebee.
+* gpu_driver_vulkan_install = Install the Vulkan library.
 
 ## Compatibility
 

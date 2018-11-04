@@ -28,7 +28,7 @@
 
 - name: Allowing a user to use the "optirun" and "primusrun" commands
   user:
-    name: "{{ bumblebee_user }}"
+    name: "{{ gpu_driver_bumblebee_user }}"
     groups: bumblebee
     append: yes
   when: bumblebee_user is defined
