@@ -10,3 +10,7 @@
     name: "{{ item }}"
     state: latest
   loop: "{{ nvidia_packages }}"
+
+- debug:
+    msg: "Vulkan is already installed as part of the 'nvidia' package."
+  when: gpu_driver_vulkan_install
