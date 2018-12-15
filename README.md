@@ -15,8 +15,8 @@ Currently supported platforms:
 ## Role Variables
 
 * gpu_driver_nvidia_install = Set to `True` to install the Nvidia graphics drivers.
-* gpu_driver_use_bumblebee = Set this to `True` if Nvidia will be installed on an [Nvidia Optimus laptop](https://www.geforce.com/hardware/technology/optimus/supported-gpus).
-* gpu_driver_bumblebee_user = A user that should be allowed to run programs using Bumblebee.
+* gpu_driver_nvidia_use_bumblebee = Set this to `True` if Nvidia will be installed on an [Nvidia Optimus laptop](https://www.geforce.com/hardware/technology/optimus/supported-gpus).
+* gpu_driver_nvidia_bumblebee_user = A user that should be allowed to run programs using Bumblebee.
 * gpu_driver_vulkan_install = Set to `True` to install the Vulkan library.
 
 ## Compatibility
@@ -25,26 +25,26 @@ Only Nvidia is supported right now. AMD is switching to a new AMDGPU-PRO driver 
 
 ## Example Playbook
 
-Create a Playbook to run the `ansible-role-gpu-driver` role on the local computer.
+Create a Playbook to run the `ansible_role_gpu_driver` role on the local computer.
 
 ```
 $ vim site.yml
 ---
 - hosts: localhost
   roles:
-   - ansible-role-gpu-driver
+   _ ansible_role_gpu_driver
 ```
 
 Run the Playbook to install the Nvidia driver.
 
 ```
-$ sudo ansible-playbook --extra-vars "nvidia_install=true" site.yml
+$ sudo ansible-playbook --extra-vars "gpu_driver_nvidia_install=true" site.yml
 ```
 
 Alternatively, a laptop with Nvidia Optimus support should install the Nvidia Bumblebee drivers.
 
 ```
-$ sudo ansible-playbook --extra-vars "nvidia_install=true nvidia_use_bumblebee=true bumblebee_user=exampleuser" site.yml
+$ sudo ansible-playbook --extra-vars "gpu_driver_nvidia_install=true gpu_driver_nvidia_use_bumblebee=true gpu_driver_nvidia_bumblebee_user=exampleuser" site.yml
 ```
 
 ## License

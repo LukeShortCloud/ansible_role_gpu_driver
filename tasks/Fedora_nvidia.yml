@@ -1,10 +1,10 @@
 - name: Including the normal Nvidia driver tasks
   include_tasks: Fedora_nvidia_main.yml
-  when: not gpu_driver_use_bumblebee
+  when: not gpu_driver_nvidia_use_bumblebee
 
 - name: Including the Nvidia Primus/Bumblebee tasks
   include_tasks: Fedora_nvidia_bumblebee.yml
-  when: gpu_driver_use_bumblebee
+  when: gpu_driver_nvidia_use_bumblebee
 
 - name: Force update the Nvidia kernel module
   command: akmods --force
