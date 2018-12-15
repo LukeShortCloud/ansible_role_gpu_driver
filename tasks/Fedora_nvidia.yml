@@ -1,3 +1,15 @@
+- name: Installing the Fedora workstaiton repositories
+  dnf:
+    name: fedora-workstation-repositories
+    state: present
+
+- name: Enabling the Nvidia repository
+  ini_file:
+    path: /etc/yum.repos.d/rpmfusion-nonfree-nvidia-driver.repo
+    section: rpmfusion-nonfree-nvidia-driver
+    option: enabled
+    value: 1
+
 - name: Including the normal Nvidia driver tasks
   include_tasks: Fedora_nvidia_main.yml
   when: not gpu_driver_nvidia_use_bumblebee
