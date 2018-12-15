@@ -32,7 +32,7 @@ $ vim site.yml
 ---
 - hosts: localhost
   roles:
-   _ ansible_role_gpu_driver
+    - ansible_role_gpu_driver
 ```
 
 Run the Playbook to install the Nvidia driver.
