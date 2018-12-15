@@ -40,3 +40,24 @@
     name: nvidia-fallback
     masked: yes
     enabled: no
+
+- name: Create bbswitch module configuration files
+  file:
+    path: "{{ item }}"
+    state: touch
+    mode: 0644
+    owner: root
+    group: root
+  loop:
+    - /etc/modules-load.d/bbswitch.conf
+    - /etc/modprobe.d/bbswitch.conf
+
+- name: Load the bbswitch module on boot
+  lineinfile:
+    path: /etc/modules-load.d/bbswitch.conf
+    line: bbswitch
+
+- name: Disable the Nvidia card on boot to save power
+  lineinfile:
+    path: /etc/modprobe.d/bbswitch.conf
+    line: options bbswitch load_state=0 unload_state=1
