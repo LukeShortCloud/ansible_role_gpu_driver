@@ -1,4 +1,10 @@
 ---
+- name: Disable the open source Nvidia kernel module drivers (Nouveau)
+  copy:
+    src: blacklist_nouveau.conf
+    dest: /etc/modprobe.d/blacklist_nouveau.conf
+  when: gpu_driver_nvidia_install
+
 - include: "{{ ansible_distribution }}_nvidia.yml"
   when: gpu_driver_nvidia_install
 
