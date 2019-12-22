@@ -10,7 +10,7 @@ galaxy_info:
         - all
     - name: Fedora
       versions:
-        - 28
+        - all
     - name: Windows
       versions:
         - all
