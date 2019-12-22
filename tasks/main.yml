@@ -5,7 +5,7 @@
     dest: /etc/modprobe.d/blacklist_nouveau.conf
   when: gpu_driver_nvidia_install
 
-- include: "{{ ansible_distribution }}_nvidia.yml"
+- include: "nvidia/{{ ansible_distribution }}.yml"
   when: gpu_driver_nvidia_install
 
 - debug:
