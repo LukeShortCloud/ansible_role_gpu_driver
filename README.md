@@ -21,7 +21,6 @@ Currently supported platforms:
 * gpu_driver_vendor = Set to `amd` or `nvidia`.
 * gpu_driver_nvidia_use_bumblebee = Set this to `True` if Nvidia will be installed on an [Nvidia Optimus laptop](https://www.geforce.com/hardware/technology/optimus/supported-gpus).
 * gpu_driver_nvidia_bumblebee_user = A user that should be allowed to run programs using Bumblebee.
-* gpu_driver_vulkan_install = Set to `False` to not install the Vulkan library.
 
 ## Example Playbook
 

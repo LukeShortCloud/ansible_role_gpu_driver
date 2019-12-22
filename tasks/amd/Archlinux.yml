@@ -3,4 +3,4 @@
   package:
     name: "{{ item }}"
     state: present
-  loop: "{{ gpu_driver_archlinux_amd_packages }}"
+  loop: "{{ gpu_driver_amd_packages_archlinux }}"

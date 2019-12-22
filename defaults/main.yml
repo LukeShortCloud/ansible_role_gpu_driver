@@ -3,4 +3,3 @@
 # that use a hybrid mode of integrated and dedicated graphics cards.
 # This does not apply to desktop computers.
 gpu_driver_nvidia_use_bumblebee: False
-gpu_driver_vulkan_install: True

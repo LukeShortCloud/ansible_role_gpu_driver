@@ -13,10 +13,10 @@
     description: "{{ item.description }}"
     baseurl: "{{ item.baseurl }}"
     state: present
-  loop: "{{ fedora_amd_repos }}"
+  loop: "{{ gpu_driver_amd_repos_fedora }}"
 
 - name: Install the Fedora AMD drivers
   package:
     name: "{{ item }}"
     state: latest
-  loop: "{{ gpu_driver_fedora_amd_packages }}"
+  loop: "{{ gpu_driver_amd_packages_fedora }}"

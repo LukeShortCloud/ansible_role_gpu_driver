@@ -4,13 +4,4 @@
     name: "{{ item }}"
     state: present
     enablerepo: rpmfusion-nonfree-nvidia-driver
-  loop: "{{ nvidia_main_packages }}"
-
-- name: Install Vulkan
-  package:
-    name: "{{ item }}"
-    state: present
-  loop:
-    - vulkan-loader
-    - vulkan-tools
-  when: gpu_driver_vulkan_install
+  loop: "{{ gpu_driver_nvidia_packages_fedora }}"

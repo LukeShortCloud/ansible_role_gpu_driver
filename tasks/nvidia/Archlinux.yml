@@ -4,7 +4,3 @@
     name: "{{ item }}"
     state: present
   loop: "{{ gpu_driver_nvidia_packages_archlinux }}"
-
-- debug:
-    msg: "Vulkan is already installed as part of the 'nvidia' package."
-  when: gpu_driver_vulkan_install
