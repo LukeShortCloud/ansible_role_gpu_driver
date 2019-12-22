@@ -1,3 +1,4 @@
+---
 - name: Installing the Nvidia driver packages
   dnf:
     name: "{{ item }}"

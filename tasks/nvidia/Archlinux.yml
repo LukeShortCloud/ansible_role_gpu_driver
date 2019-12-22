@@ -1,15 +1,9 @@
-- set_fact:
-    nvidia_packages:
-     - nvidia
-     - nvidia-utils
-     - lib32-nvidia-utils
-     - nvidia-libgl
-     - lib32-nvidia-libgl
-
-- package:
+---
+- name: Install the Arch Linux Nvidia drivers
+  package:
     name: "{{ item }}"
-    state: latest
-  loop: "{{ nvidia_packages }}"
+    state: present
+  loop: "{{ gpu_driver_nvidia_packages_archlinux }}"
 
 - debug:
     msg: "Vulkan is already installed as part of the 'nvidia' package."

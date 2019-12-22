@@ -1,5 +1,12 @@
 ---
-nvidia_main_packages:
+gpu_driver_nvidia_packages_archlinux:
+  - nvidia
+  - nvidia-utils
+  - lib32-nvidia-utils
+  - nvidia-libgl
+  - lib32-nvidia-libgl
+
+gpu_driver_nvidia_packages_fedora:
   - akmod-nvidia
   - nvidia-kmod-common
   - xorg-x11-drv-nvidia

@@ -1,3 +1,5 @@
-- win_chocolatey:
-    name: "nvidia-display-driver"
-    state: latest
+---
+- name: Install the Windows Nvidia driver
+  win_chocolatey:
+    name: nvidia-display-driver
+    state: present

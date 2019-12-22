@@ -1,5 +1,7 @@
 ---
-- include: "{{ gpu_driver_vendor }}/main.yml"
+- name: "Include tasks for the GPU vendor {{ gpu_driver_vendor }}"
+  include: "{{ gpu_driver_vendor }}/main.yml"
 
-- debug:
+- name: Installation complete
+  debug:
     msg: "Reboot the machine(s) to load new drivers."

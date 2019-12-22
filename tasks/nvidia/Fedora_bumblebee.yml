@@ -1,3 +1,4 @@
+---
 # Following the instructions from:
 # https://docs.fedoraproject.org/en-US/quick-docs/bumblebee/index.html
 - name: Installing Nvidia packages
@@ -17,7 +18,7 @@
 - name: Installing Bumblebee
   dnf:
     name: "{{ item }}"
-    state: latest
+    state: present
   loop:
     - akmod-bbswitch
     - bumblebee
