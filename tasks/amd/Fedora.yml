@@ -1,0 +1,22 @@
+---
+- name: Remove problematic packages
+  package:
+    name: "{{ item }}"
+    state: absent
+  loop:
+    - beignet
+    - pocl
+
+- name: Add repositories required for the latest open source LLVM and Mesa drivers
+  yum_repository:
+    name: "{{ item.name }}"
+    description: "{{ item.description }}"
+    baseurl: "{{ item.baseurl }}"
+    state: present
+  loop: "{{ fedora_amd_repos }}"
+
+- name: Install the Fedora AMD drivers
+  package:
+    name: "{{ item }}"
+    state: latest
+  loop: "{{ gpu_driver_fedora_amd_packages }}"

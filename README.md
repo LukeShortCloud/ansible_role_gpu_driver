@@ -4,9 +4,13 @@ This role aims to make it easy for installing proprietary graphics card drivers 
 
 Currently supported platforms:
 
-* Arch Linux
-* Fedora >= 28
-* Windows
+* AMD
+    * Arch Linux
+    * Fedora >= 28
+* Nvidia
+    * Arch Linux
+    * Fedora >= 28
+    * Windows
 
 ## Requirements
 
@@ -14,14 +18,10 @@ Currently supported platforms:
 
 ## Role Variables
 
-* gpu_driver_nvidia_install = Set to `True` to install the Nvidia graphics drivers.
+* gpu_driver_vendor = Set to `amd` or `nvidia`.
 * gpu_driver_nvidia_use_bumblebee = Set this to `True` if Nvidia will be installed on an [Nvidia Optimus laptop](https://www.geforce.com/hardware/technology/optimus/supported-gpus).
 * gpu_driver_nvidia_bumblebee_user = A user that should be allowed to run programs using Bumblebee.
 * gpu_driver_vulkan_install = Set to `False` to not install the Vulkan library.
-
-## Compatibility
-
-Only Nvidia is supported right now. AMD is switching to a new AMDGPU-PRO driver for Linux that that is still young and is replacing the old Catalyst driver. Windows also does not have a Chocolatey package for any of the AMD drivers.
 
 ## Example Playbook
 

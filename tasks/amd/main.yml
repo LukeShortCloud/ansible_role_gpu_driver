@@ -1,0 +1,3 @@
+---
+- name: Include operating system specific tasks
+  include: "{{ ansible_distribution }}.yml"

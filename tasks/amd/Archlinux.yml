@@ -1,0 +1,6 @@
+---
+- name: Install the Arch Linux AMD drivers
+  package:
+    name: "{{ item }}"
+    state: present
+  loop: "{{ gpu_driver_archlinux_amd_packages }}"
